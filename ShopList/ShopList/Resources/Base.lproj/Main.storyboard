@@ -31,7 +31,7 @@
                                                 <constraint firstAttribute="width" constant="50" id="TdZ-wo-XmQ"/>
                                                 <constraint firstAttribute="height" constant="50" id="VNY-WL-Tmw"/>
                                             </constraints>
-                                            <state key="normal" image="unChecked"/>
+                                            <state key="normal" image="checked"/>
                                             <connections>
                                                 <action selector="didBuyButtonTapped:" destination="KF6-eU-TQ6" eventType="touchUpInside" id="7Ot-sC-D6m"/>
                                             </connections>
@@ -43,7 +43,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="0.49237478600000001" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="uUR-gs-ZhN" firstAttribute="centerY" secondItem="V5h-mh-3Pv" secondAttribute="centerY" id="Rdp-xc-KRP"/>
                                         <constraint firstItem="uUR-gs-ZhN" firstAttribute="leading" secondItem="9Ti-8T-skg" secondAttribute="trailing" constant="8" id="VAw-xv-6so"/>
@@ -93,6 +93,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="unChecked" width="256" height="256"/>
+        <image name="checked" width="256" height="256"/>
     </resources>
 </document>

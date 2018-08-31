@@ -13,9 +13,12 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     func didBuyToggled(cell: ItemTableViewCell) {
         
-        guard let itemChecked = cell.item?.didBuy else { return }
-        cell.item?.didBuy = !itemChecked
+        guard let index = tableView.indexPath(for: cell) else {return}
+        guard let item = fetchResultsController.fetchedObjects?[index.row] else {return}
+        item.didBuy = !item.didBuy
         CoreDataStack.saveToPersistentStore()
+       
+        
     }
     
     
@@ -78,6 +81,7 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell
         let item = fetchResultsController.fetchedObjects?[indexPath.row]
         cell?.nameLabel.text = item?.name
+        cell?.item = item
         
         cell?.delegate = self
         return cell ?? UITableViewCell()

@@ -44,18 +44,25 @@ class ItemTableViewCell: UITableViewCell {
     
     //MARK: - Update Methods
     
-    func updateButtonImage() {
+    func updateButtonImage(){
         
-        guard let item = item else {return}
-  
-        item.didBuy ?  didBuyButton.setImage(UIImage(named: "checked"), for: .normal) : didBuyButton.setImage(UIImage(named: "uChecked"), for: .normal)
+        guard let item =  item else {return}
+        if item.didBuy {
+            didBuyButton.setImage(UIImage(named: "checked"), for: .normal)
+            print("Completed")
+        } else {
+            didBuyButton.setImage(UIImage(named: "unChecked"), for: .normal)
+        }
+        
     }
     
     func updateView() {
         
         guard let item = item else {return}
         nameLabel.text = item.name
+        
         updateButtonImage()
+        
       
     }
 
@@ -68,12 +75,7 @@ class ItemTableViewCell: UITableViewCell {
     
 
 }
-extension ItemTableViewCell{
-    func update(item: Item){
-        item.didBuy = !item.didBuy
-        updateView()
-    }
-}
+
         
     
     
