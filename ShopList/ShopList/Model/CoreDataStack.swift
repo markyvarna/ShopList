@@ -29,7 +29,7 @@ enum CoreDataStack {
         return container.viewContext
     }
     
-    //MARK: - SAVE Method
+    //MARK: - Save to Persistent Store
     static func saveToPersistentStore() {
         do {
             try CoreDataStack.context.save()
@@ -37,13 +37,13 @@ enum CoreDataStack {
             print("There was en error in \(#function) \(error), \(error.localizedDescription)")
         }
     }
-    /*
-    //3.)Delete from Persistent Store
-    //note you cannot use instances of self in a static func
-    static func delete(quote: Item) {
+    
+    //MARK: - Delete From Persistent Store
+    
+    static func delete(item: Item) {
         CoreDataStack.context.delete(item)
         saveToPersistentStore()
     }
-    */
+    
 }
 

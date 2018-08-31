@@ -11,11 +11,13 @@ import CoreData
 
 class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate, ItemTableViewCellDelegate {
     
-    //MARK: - Delegate Method
     func didBuyToggled(cell: ItemTableViewCell) {
         
-        
+        guard let itemChecked = cell.item?.didBuy else { return }
+        cell.item?.didBuy = !itemChecked
+        CoreDataStack.saveToPersistentStore()
     }
+    
     
     //MARK: - Properties -  NSFetchedResultsController
     let fetchResultsController: NSFetchedResultsController<Item> = {
@@ -31,7 +33,7 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         //if something gets deleted from the tableView, this will execute
         
         switch type{
-        
+            
         case .delete:
             guard let indexPath = indexPath else {return}
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -49,27 +51,27 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         }
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchResultsController.delegate = self
         try? fetchResultsController.performFetch()
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return fetchResultsController.fetchedObjects?.count ?? 0
         
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //cast cell as a ItemTableViewCell
@@ -81,16 +83,17 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         return cell ?? UITableViewCell()
         
     }
-
+    
     //MARK: - Swipe to Delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            guard let item = fetchResultsController.fetchedObjects?[indexPath.row] else {return}
+            CoreDataStack.delete(item: item)
         }
         
     }
+    
     
     //MARK: - UIAlertController
     func presentAlertController() {
@@ -123,10 +126,7 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
 }
 
-/*
- 
-*/
 
- 
+
 
 

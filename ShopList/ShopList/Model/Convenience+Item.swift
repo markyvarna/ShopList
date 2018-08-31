@@ -13,12 +13,12 @@ extension Item {
     //this makes it so if we unwrap something and dont assign it to a var and we dont "use it" that error will go away
     @discardableResult
     //MARK: - Init Convenience Intializer
-    convenience init(name: String, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(name: String, didBuy: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
         
         self.name = name
-        self.didBuy = false
+//        self.didBuy = didBuy
         
     }
     

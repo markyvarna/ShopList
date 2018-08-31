@@ -20,8 +20,10 @@ class ItemTableViewCell: UITableViewCell {
     //MARK: - Properties
     weak var delegate: ItemTableViewCellDelegate?
     
+    
     var item: Item? {
         didSet{
+            
             updateView()
         }
     }
@@ -40,24 +42,25 @@ class ItemTableViewCell: UITableViewCell {
 
     }
     
-    //MARK: - Update Cell View
+    //MARK: - Update Methods
+    
+    func updateButtonImage() {
+        
+        guard let item = item else {return}
+  
+        item.didBuy ?  didBuyButton.setImage(UIImage(named: "checked"), for: .normal) : didBuyButton.setImage(UIImage(named: "uChecked"), for: .normal)
+    }
+    
     func updateView() {
         
         guard let item = item else {return}
         nameLabel.text = item.name
-        
-        if item.didBuy == true {
-            didBuyButton.setImage(UIImage(named: "checked"), for: .normal)
-        } else {
-            didBuyButton.setImage(UIImage(named: "unChecked"), for: .normal)
-        }
-        
+        updateButtonImage()
+      
     }
 
     //MARK: - Actions
     @IBAction func didBuyButtonTapped(_ sender: UIButton) {
-        
-        //cell delegate method
         self.delegate?.didBuyToggled(cell: self)
         
     }
@@ -65,7 +68,13 @@ class ItemTableViewCell: UITableViewCell {
     
 
 }
-/*
- 
- 
- */
+extension ItemTableViewCell{
+    func update(item: Item){
+        item.didBuy = !item.didBuy
+        updateView()
+    }
+}
+        
+    
+    
+
