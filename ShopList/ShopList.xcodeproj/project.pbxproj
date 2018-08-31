@@ -13,6 +13,9 @@
 		45240EBE213998D20092D1C6 /* ShopList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45240EBC213998D20092D1C6 /* ShopList.xcdatamodeld */; };
 		45240EC0213999460092D1C6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45240EBF213999460092D1C6 /* CoreDataStack.swift */; };
 		455A8BB321399C15000B4496 /* assets.cassets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455A8BB221399C15000B4496 /* assets.cassets.xcassets */; };
+		455A8BB521399E6F000B4496 /* ItemListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BB421399E6F000B4496 /* ItemListTableVC.swift */; };
+		455A8BB721399F17000B4496 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BB621399F17000B4496 /* ItemTableViewCell.swift */; };
+		455A8BBB21399F8F000B4496 /* Convenience+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BBA21399F8F000B4496 /* Convenience+Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		45240EBD213998D20092D1C6 /* ShopList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShopList.xcdatamodel; sourceTree = "<group>"; };
 		45240EBF213999460092D1C6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		455A8BB221399C15000B4496 /* assets.cassets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.cassets.xcassets; sourceTree = "<group>"; };
+		455A8BB421399E6F000B4496 /* ItemListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableVC.swift; sourceTree = "<group>"; };
+		455A8BB621399F17000B4496 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		455A8BBA21399F8F000B4496 /* Convenience+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Convenience+Item.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				45240EC221399B420092D1C6 /* Resources */,
+				455A8BB821399F1B000B4496 /* View */,
+				455A8BB921399F2D000B4496 /* Controller */,
 				45240EC121399B310092D1C6 /* Model */,
 			);
 			path = ShopList;
@@ -67,6 +75,7 @@
 			children = (
 				45240EBC213998D20092D1C6 /* ShopList.xcdatamodeld */,
 				45240EBF213999460092D1C6 /* CoreDataStack.swift */,
+				455A8BBA21399F8F000B4496 /* Convenience+Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -81,6 +90,22 @@
 				455A8BB221399C15000B4496 /* assets.cassets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		455A8BB821399F1B000B4496 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				455A8BB621399F17000B4496 /* ItemTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		455A8BB921399F2D000B4496 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				455A8BB421399E6F000B4496 /* ItemListTableVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,8 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455A8BB521399E6F000B4496 /* ItemListTableVC.swift in Sources */,
 				45240EC0213999460092D1C6 /* CoreDataStack.swift in Sources */,
+				455A8BB721399F17000B4496 /* ItemTableViewCell.swift in Sources */,
 				45240EAB213992E30092D1C6 /* AppDelegate.swift in Sources */,
+				455A8BBB21399F8F000B4496 /* Convenience+Item.swift in Sources */,
 				45240EBE213998D20092D1C6 /* ShopList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

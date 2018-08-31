@@ -15,7 +15,7 @@ enum CoreDataStack {
     static let container: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "ShopList")
-        //set the container tp load at run time like below
+        //set the container to load at run time like below
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
                 fatalError("Failed to Load Persistent Stores \(error)")

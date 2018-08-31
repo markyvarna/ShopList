@@ -11,30 +11,33 @@
         <!--ShopList-->
         <scene sceneID="zxs-hb-GpZ">
             <objects>
-                <tableViewController id="4e7-Gy-KoP" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sZM-ir-Pmx">
+                <tableViewController id="4e7-Gy-KoP" customClass="ItemListTableVC" customModule="ShopList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sZM-ir-Pmx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="106" id="KF6-eU-TQ6">
-                                <rect key="frame" x="0.0" y="28" width="375" height="106"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="150" id="KF6-eU-TQ6" customClass="ItemTableViewCell" customModule="ShopList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KF6-eU-TQ6" id="V5h-mh-3Pv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUR-gs-ZhN">
-                                            <rect key="frame" x="301" y="28" width="50" height="50"/>
+                                            <rect key="frame" x="301" y="50" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="uUR-gs-ZhN" secondAttribute="height" multiplier="1:1" id="QSz-K2-nyh"/>
                                                 <constraint firstAttribute="width" constant="50" id="TdZ-wo-XmQ"/>
                                                 <constraint firstAttribute="height" constant="50" id="VNY-WL-Tmw"/>
                                             </constraints>
                                             <state key="normal" image="unChecked"/>
+                                            <connections>
+                                                <action selector="didBuyButtonTapped:" destination="KF6-eU-TQ6" eventType="touchUpInside" id="7Ot-sC-D6m"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ti-8T-skg">
-                                            <rect key="frame" x="24" y="41" width="269" height="24"/>
+                                            <rect key="frame" x="24" y="63" width="269" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -49,6 +52,10 @@
                                         <constraint firstItem="9Ti-8T-skg" firstAttribute="leading" secondItem="V5h-mh-3Pv" secondAttribute="leadingMargin" constant="8" id="tSZ-5l-Yv2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="didBuyButton" destination="uUR-gs-ZhN" id="A4r-z7-Ktc"/>
+                                    <outlet property="nameLabel" destination="9Ti-8T-skg" id="csO-Qi-sA4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,7 +64,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ShopList" id="qBK-Ei-uLo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="k2S-Te-9HQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="k2S-Te-9HQ">
+                            <connections>
+                                <action selector="addItemButtonTapped:" destination="4e7-Gy-KoP" id="wSm-Nd-OVB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydD-V2-Jgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
