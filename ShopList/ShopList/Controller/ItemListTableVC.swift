@@ -11,6 +11,8 @@ import CoreData
 
 class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate, ItemTableViewCellDelegate {
     
+    //MARK: - Delagate Method
+    
     func didBuyToggled(cell: ItemTableViewCell) {
         
         guard let index = tableView.indexPath(for: cell) else {return}
@@ -18,11 +20,10 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         item.didBuy = !item.didBuy
         CoreDataStack.saveToPersistentStore()
        
-        
     }
     
-    
     //MARK: - Properties -  NSFetchedResultsController
+    
     let fetchResultsController: NSFetchedResultsController<Item> = {
         
         //init fetch request - use sort descriptor - return
@@ -66,9 +67,11 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+        
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return fetchResultsController.fetchedObjects?.count ?? 0
@@ -79,16 +82,16 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         
         //cast cell as a ItemTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell
+        
         let item = fetchResultsController.fetchedObjects?[indexPath.row]
         cell?.nameLabel.text = item?.name
         cell?.item = item
-        
         cell?.delegate = self
+        
         return cell ?? UITableViewCell()
         
     }
     
-    //MARK: - Swipe to Delete
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -98,18 +101,19 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         
     }
     
-    
     //MARK: - UIAlertController
+    
     func presentAlertController() {
         
-        let alertController = UIAlertController(title: "Add New Item", message: "Tell ShopList Item is Named below:", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add a Movie", message: "Marvel Movies Only...", preferredStyle: .alert)
+        
         alertController.addTextField { (itemTextField) in
-            itemTextField.placeholder = "Item Name"
+            itemTextField.placeholder = "Movie Name"
             
         }
         
         let dismissAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { ( _ )  in
+        let saveAction = UIAlertAction(title: "Accept", style: .default) { ( _ )  in
             guard let itemName = alertController.textFields?[0].text else {return}
             Item(name: itemName)
             CoreDataStack.saveToPersistentStore()
@@ -123,11 +127,22 @@ class ItemListTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         
     }
     
-    //MARK: - Actions
+    //MARK: - IBActions
     @IBAction func addItemButtonTapped(_ sender: UIBarButtonItem) {
+        
         presentAlertController()
+        
     }
     
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetail" {
+            let destinationvc = segue.destination as? DetailViewController
+            guard let indexPath = tableView.indexPathForSelectedRow?.row else {return}
+            guard let item =  fetchResultsController.fetchedObjects?[indexPath] else {return}
+            destinationvc?.itemName = item.name
+        }
+    }
 }
 
 

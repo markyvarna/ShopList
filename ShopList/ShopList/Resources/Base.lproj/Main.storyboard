@@ -5,17 +5,19 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ShopList-->
+        <!--Movie Night!-->
         <scene sceneID="zxs-hb-GpZ">
             <objects>
                 <tableViewController id="4e7-Gy-KoP" customClass="ItemListTableVC" customModule="ShopList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sZM-ir-Pmx">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sZM-ir-Pmx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="150" id="KF6-eU-TQ6" customClass="ItemTableViewCell" customModule="ShopList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
@@ -37,13 +39,13 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ti-8T-skg">
-                                            <rect key="frame" x="24" y="63" width="269" height="24"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <rect key="frame" x="24" y="52.5" width="269" height="45"/>
+                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="0.49237478600000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="uUR-gs-ZhN" firstAttribute="centerY" secondItem="V5h-mh-3Pv" secondAttribute="centerY" id="Rdp-xc-KRP"/>
                                         <constraint firstItem="uUR-gs-ZhN" firstAttribute="leading" secondItem="9Ti-8T-skg" secondAttribute="trailing" constant="8" id="VAw-xv-6so"/>
@@ -55,6 +57,7 @@
                                 <connections>
                                     <outlet property="didBuyButton" destination="uUR-gs-ZhN" id="A4r-z7-Ktc"/>
                                     <outlet property="nameLabel" destination="9Ti-8T-skg" id="csO-Qi-sA4"/>
+                                    <segue destination="I4T-fV-aFi" kind="show" identifier="goToDetail" id="Ils-H1-2fU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -63,7 +66,7 @@
                             <outlet property="delegate" destination="4e7-Gy-KoP" id="Fyf-3M-sIy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ShopList" id="qBK-Ei-uLo">
+                    <navigationItem key="navigationItem" title="Movie Night!" id="qBK-Ei-uLo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="k2S-Te-9HQ">
                             <connections>
                                 <action selector="addItemButtonTapped:" destination="4e7-Gy-KoP" id="wSm-Nd-OVB"/>
@@ -75,6 +78,50 @@
             </objects>
             <point key="canvasLocation" x="325.60000000000002" y="69.715142428785612"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="6cr-Zg-zCg">
+            <objects>
+                <viewController id="I4T-fV-aFi" customClass="DetailViewController" customModule="ShopList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fPo-Yz-HuF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thor" translatesAutoresizingMaskIntoConstraints="NO" id="Sg2-2s-hjh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-46-vGp">
+                                <rect key="frame" x="0.0" y="360" width="375" height="307"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38008347602739728" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tPL-46-vGp" secondAttribute="height" multiplier="375:307" id="tR1-QY-r6B"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Sg2-2s-hjh" secondAttribute="bottom" id="M1D-PQ-x0x"/>
+                            <constraint firstItem="Sg2-2s-hjh" firstAttribute="leading" secondItem="fPo-Yz-HuF" secondAttribute="leading" id="OOD-p0-TSX"/>
+                            <constraint firstItem="tPL-46-vGp" firstAttribute="centerX" secondItem="fPo-Yz-HuF" secondAttribute="centerX" id="Q8n-eB-H1f"/>
+                            <constraint firstItem="Sg2-2s-hjh" firstAttribute="trailing" secondItem="KDS-LZ-rCw" secondAttribute="trailing" id="ZUE-2D-ftc"/>
+                            <constraint firstItem="Sg2-2s-hjh" firstAttribute="top" secondItem="KDS-LZ-rCw" secondAttribute="top" id="lHQ-Yy-CRG"/>
+                            <constraint firstAttribute="bottom" secondItem="tPL-46-vGp" secondAttribute="bottom" id="nII-he-hfP"/>
+                            <constraint firstItem="tPL-46-vGp" firstAttribute="width" secondItem="fPo-Yz-HuF" secondAttribute="width" id="xJg-pn-Uc6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KDS-LZ-rCw"/>
+                    </view>
+                    <connections>
+                        <outlet property="backGroundImageView" destination="Sg2-2s-hjh" id="PS5-9T-3ei"/>
+                        <outlet property="textView" destination="tPL-46-vGp" id="Zme-Ns-Chl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWT-pd-J38" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="70"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fuz-GS-hG2">
             <objects>
@@ -82,6 +129,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dv9-HR-id2">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.80784313730000001" green="0.66274509800000003" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="36"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4e7-Gy-KoP" kind="relationship" relationship="rootViewController" id="LYV-dM-nay"/>
@@ -94,5 +147,7 @@
     </scenes>
     <resources>
         <image name="checked" width="256" height="256"/>
+        <image name="thor" width="520" height="923"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

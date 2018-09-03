@@ -16,6 +16,8 @@
 		455A8BB521399E6F000B4496 /* ItemListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BB421399E6F000B4496 /* ItemListTableVC.swift */; };
 		455A8BB721399F17000B4496 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BB621399F17000B4496 /* ItemTableViewCell.swift */; };
 		455A8BBB21399F8F000B4496 /* Convenience+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BBA21399F8F000B4496 /* Convenience+Item.swift */; };
+		455A8BBD213A122D000B4496 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BBC213A122D000B4496 /* DetailViewController.swift */; };
+		455A8BBF213A14E0000B4496 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8BBE213A14E0000B4496 /* Summary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		455A8BB421399E6F000B4496 /* ItemListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableVC.swift; sourceTree = "<group>"; };
 		455A8BB621399F17000B4496 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		455A8BBA21399F8F000B4496 /* Convenience+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Convenience+Item.swift"; sourceTree = "<group>"; };
+		455A8BBC213A122D000B4496 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		455A8BBE213A14E0000B4496 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				45240EBC213998D20092D1C6 /* ShopList.xcdatamodeld */,
 				45240EBF213999460092D1C6 /* CoreDataStack.swift */,
 				455A8BBA21399F8F000B4496 /* Convenience+Item.swift */,
+				455A8BBE213A14E0000B4496 /* Summary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				455A8BB421399E6F000B4496 /* ItemListTableVC.swift */,
+				455A8BBC213A122D000B4496 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 				45240EAB213992E30092D1C6 /* AppDelegate.swift in Sources */,
 				455A8BBB21399F8F000B4496 /* Convenience+Item.swift in Sources */,
 				45240EBE213998D20092D1C6 /* ShopList.xcdatamodeld in Sources */,
+				455A8BBF213A14E0000B4496 /* Summary.swift in Sources */,
+				455A8BBD213A122D000B4496 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
